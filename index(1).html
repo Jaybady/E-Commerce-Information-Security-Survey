@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔒 Khảo sát An toàn thông tin trong TMĐT 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .bg-animation span {
+            position: absolute;
+            display: block;
+            width: 20px; height: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            animation: float 25s infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+        
+        .bg-animation span:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-delay: 0s; }
+        .bg-animation span:nth-child(2) { left: 20%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .bg-animation span:nth-child(3) { left: 35%; width: 60px; height: 60px; animation-delay: 4s; }
+        .bg-animation span:nth-child(4) { left: 50%; width: 40px; height: 40px; animation-delay: 0s; animation-duration: 18s; }
+        .bg-animation span:nth-child(5) { left: 65%; width: 90px; height: 90px; animation-delay: 0s; }
+        .bg-animation span:nth-child(6) { left: 75%; width: 30px; height: 30px; animation-delay: 3s; }
+        .bg-animation span:nth-child(7) { left: 85%; width: 70px; height: 70px; animation-delay: 7s; }
+        .bg-animation span:nth-child(8) { left: 90%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-1500px) rotate(720deg); opacity: 0; }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 700px;
+        }
+        
+        .form-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px; left: 0; right: 0;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50% 50% 0 0;
+        }
+        
+        .header-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .header h1 {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 13px;
+            font-weight: 400;
+        }
+        
+        .progress-container { padding: 20px 30px 0; }
+        
+        .progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            text-align: right;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 11px;
+            margin-top: 5px;
+        }
+        
+        .form-body { padding: 30px; }
+        
+        .section { margin-bottom: 30px; }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #f093fb;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title .icon { font-size: 18px; }
+        
+        .question {
+            margin-bottom: 24px;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .question-text {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .question-text .number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 26px; height: 26px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(240, 147, 251, 0.2);
+            color: #f093fb;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            background: rgba(102, 126, 234, 0.15);
+            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateX(5px);
+        }
+        
+        .option input {
+            margin-right: 12px;
+            width: 18px; height: 18px;
+            accent-color: #667eea;
+            cursor: pointer;
+        }
+        
+        .option label {
+            cursor: pointer;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            flex: 1;
+        }
+        
+        .option.selected {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .option.selected label { color: white; }
+        
+        .skip-note {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #ffc107;
+        }
+        
+        .submit-section {
+            padding: 0 30px 30px;
+            text-align: center;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .submit-btn:active { transform: translateY(-1px); }
+        
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .submit-btn:active::after { width: 300px; height: 300px; }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 11px;
+        }
+        
+        .footer a {
+            color: #f093fb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-overlay.active { display: flex; }
+        
+        .modal {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            animation: modalIn 0.5s ease;
+        }
+        
+        @keyframes modalIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .modal-icon { font-size: 60px; margin-bottom: 20px; }
+        .modal h2 { color: white; margin-bottom: 10px; }
+        .modal p { color: rgba(255, 255, 255, 0.8); font-size: 14px; }
+        
+        @media (max-width: 600px) {
+            .header h1 { font-size: 20px; }
+            .form-body { padding: 20px; }
+            .option { padding: 12px 14px; }
+        }
+        
+        .hidden-section { display: none; }
+        .hidden-section.active { display: block; }
+        
+        .spinner {
+            display: none;
+            width: 20px; height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        .submit-btn.loading .spinner { display: inline-block; }
+        .submit-btn.loading { pointer-events: none; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div class="bg-animation">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+    
+    <div class="container">
+        <div class="form-card">
+            <div class="header">
+                <div class="header-icon">🔐</div>
+                <h1>Khảo sát An toàn thông tin trong TMĐT</h1>
+                <p>Nhận thức, hành vi và trải nghiệm về bảo mật khi mua sắm trực tuyến</p>
+                <p style="margin-top: 8px; font-size: 11px;">⏱️ 3-5 phút | 🔒 Ẩn danh | 📊 Nghiên cứu</p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">Tiến trình: 0%</div>
+            </div>
+            
+            <form id="surveyForm" class="form-body">
+                <div class="section" id="section1">
+                    <div class="section-title"><span class="icon">🛒</span>Phần 1: Thói quen sử dụng TMĐT</div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">1</span>Bạn thường mua sắm trực tuyến bao nhiêu lần mỗi tháng?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="1" id="q1_1"><label for="q1_1">Không bao giờ</label></div>
+                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="2" id="q1_2"><label for="q1_2">1–2 lần</label></div>
+                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="3" id="q1_3"><label for="q1_3">3–5 lần</label></div>
+                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="4" id="q1_4"><label for="q1_4">6–10 lần</label></div>
+                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="5" id="q1_5"><label for="q1_5">Hơn 10 lần</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">2</span>Bạn thường sử dụng những nền tảng nào để mua sắm trực tuyến? <span class="badge">Chọn nhiều</span></div>
+                        <div class="options">
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Shopee" id="q2_1"><label for="q2_1">🛒 Shopee</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Lazada" id="q2_2"><label for="q2_2">🏪 Lazada</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="TikTok Shop" id="q2_3"><label for="q2_3">🎵 TikTok Shop</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Tiki" id="q2_4"><label for="q2_4">📦 Tiki</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Facebook/Marketplace" id="q2_5"><label for="q2_5">📘 Facebook/Marketplace</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Website/app thương hiệu" id="q2_6"><label for="q2_6">🌐 Website/app của thương hiệu</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Khác" id="q2_7"><label for="q2_7">📝 Khác</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">3</span>Bạn thường chi khoảng bao nhiêu tiền cho mua sắm trực tuyến mỗi tháng?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="Dưới 500.000 VNĐ" id="q3_1"><label for="q3_1">Dưới 500.000 VNĐ</label></div>
+                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="500.000–1.000.000 VNĐ" id="q3_2"><label for="q3_2">500.000–1.000.000 VNĐ</label></div>
+                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="1.000.000–3.000.000 VNĐ" id="q3_3"><label for="q3_3">1.000.000–3.000.000 VNĐ</label></div>
+                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="3.000.000–5.000.000 VNĐ" id="q3_4"><label for="q3_4">3.000.000–5.000.000 VNĐ</label></div>
+                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="Trên 5.000.000 VNĐ" id="q3_5"><label for="q3_5">Trên 5.000.000 VNĐ</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="section2">
+                    <div class="section-title"><span class="icon">🧠</span>Phần 2: Nhận thức về an toàn thông tin</div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">4</span>Bạn quan tâm đến vấn đề bảo mật thông tin khi sử dụng ứng dụng TMĐT ở mức độ nào?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Hoàn toàn không quan tâm" id="q4_1"><label for="q4_1">Hoàn toàn không quan tâm</label></div>
+                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Ít quan tâm" id="q4_2"><label for="q4_2">Ít quan tâm</label></div>
+                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Bình thường" id="q4_3"><label for="q4_3">Bình thường</label></div>
+                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Khá quan tâm" id="q4_4"><label for="q4_4">Khá quan tâm</label></div>
+                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Rất quan tâm" id="q4_5"><label for="q4_5">Rất quan tâm</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">5</span>Theo bạn, những thông tin nào cần được bảo vệ khi sử dụng ứng dụng TMĐT? <span class="badge">Chọn nhiều</span></div>
+                        <div class="options">
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Họ tên" id="q5_1"><label for="q5_1">👤 Họ tên</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Số điện thoại" id="q5_2"><label for="q5_2">📞 Số điện thoại</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Địa chỉ giao hàng" id="q5_3"><label for="q5_3">📍 Địa chỉ giao hàng</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Tài khoản/mật khẩu" id="q5_4"><label for="q5_4">🔑 Tài khoản/mật khẩu</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Thông tin thẻ/tài khoản ngân hàng" id="q5_5"><label for="q5_5">💳 Thông tin thẻ/tài khoản ngân hàng</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Lịch sử mua hàng" id="q5_6"><label for="q5_6">🧾 Lịch sử mua hàng</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Thông tin định danh cá nhân" id="q5_7"><label for="q5_7">🪪 Thông tin định danh cá nhân</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Khác" id="q5_8"><label for="q5_8">📝 Khác</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">6</span>Theo bạn, rủi ro bảo mật nào đáng lo ngại nhất khi sử dụng ứng dụng TMĐT? <span class="badge">Chọn nhiều</span></div>
+                        <div class="options">
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Lừa đảo/phishing" id="q6_1"><label for="q6_1">🎣 Lừa đảo/phishing</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Chiếm đoạt tài khoản" id="q6_2"><label for="q6_2">👤 Chiếm đoạt tài khoản</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Rò rỉ thông tin cá nhân" id="q6_3"><label for="q6_3">📋 Rò rỉ thông tin cá nhân</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Đánh cắp thông tin thanh toán" id="q6_4"><label for="q6_4">💳 Đánh cắp thông tin thanh toán</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Ứng dụng/website giả mạo" id="q6_5"><label for="q6_5">🌐 Ứng dụng/website giả mạo</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Truy cập trái phép vào tài khoản" id="q6_6"><label for="q6_6">🔓 Truy cập trái phép vào tài khoản</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Gian lận giao dịch/đơn hàng" id="q6_7"><label for="q6_7">🛍️ Gian lận giao dịch/đơn hàng</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Khác" id="q6_8"><label for="q6_8">📝 Khác</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="section3">
+                    <div class="section-title"><span class="icon">🛡️</span>Phần 3: Hành vi bảo mật</div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">7</span>Bạn có sử dụng mật khẩu khác nhau cho tài khoản TMĐT và các dịch vụ khác không?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectRadio('q7', this)"><input type="radio" name="q7" value="Có, luôn sử dụng mật khẩu khác nhau" id="q7_1"><label for="q7_1">✅ Có, luôn sử dụng mật khẩu khác nhau</label></div>
+                            <div class="option" onclick="selectRadio('q7', this)"><input type="radio" name="q7" value="Có, nhưng chỉ với một số tài khoản" id="q7_2"><label for="q7_2">🔐 Có, nhưng chỉ với một số tài khoản</label></div>
+                            <div class="option" onclick="selectRadio('q7', this)"><input type="radio" name="q7" value="Không, thường sử dụng lại mật khẩu" id="q7_3"><label for="q7_3">⚠️ Không, thường sử dụng lại mật khẩu</label></div>
+                            <div class="option" onclick="selectRadio('q7', this)"><input type="radio" name="q7" value="Không nhớ/không rõ" id="q7_4"><label for="q7_4">❓ Không nhớ/không rõ</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">8</span>Bạn có sử dụng xác thực hai yếu tố (2FA/OTP) cho tài khoản TMĐT không?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectRadio('q8', this)"><input type="radio" name="q8" value="Có, thường xuyên" id="q8_1"><label for="q8_1">✅ Có, thường xuyên</label></div>
+                            <div class="option" onclick="selectRadio('q8', this)"><input type="radio" name="q8" value="Có, nhưng chỉ với một số tài khoản" id="q8_2"><label for="q8_2">🔐 Có, nhưng chỉ với một số tài khoản</label></div>
+                            <div class="option" onclick="selectRadio('q8', this)"><input type="radio" name="q8" value="Không" id="q8_3"><label for="q8_3">❌ Không</label></div>
+                            <div class="option" onclick="selectRadio('q8', this)"><input type="radio" name="q8" value="Không biết 2FA là gì" id="q8_4"><label for="q8_4">❓ Không biết 2FA là gì</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">9</span>Khi ứng dụng TMĐT yêu cầu quyền truy cập (vị trí, danh bạ, camera, ảnh...), bạn thường làm gì?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Kiểm tra quyền trước khi cho phép" id="q9_1"><label for="q9_1">🔎 Kiểm tra quyền trước khi cho phép</label></div>
+                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Chỉ cho phép những quyền cần thiết" id="q9_2"><label for="q9_2">✅ Chỉ cho phép những quyền cần thiết</label></div>
+                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Đồng ý tất cả để sử dụng ứng dụng" id="q9_3"><label for="q9_3">⚠️ Đồng ý tất cả để sử dụng ứng dụng</label></div>
+                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Không để ý" id="q9_4"><label for="q9_4">❓ Không để ý</label></div>
+                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Không nhớ" id="q9_5"><label for="q9_5">🤷 Không nhớ</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">10</span>Bạn có thường kiểm tra các thiết bị hoặc phiên đăng nhập vào tài khoản TMĐT của mình không?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Thường xuyên" id="q10_1"><label for="q10_1">✅ Thường xuyên</label></div>
+                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Thỉnh thoảng" id="q10_2"><label for="q10_2">🕒 Thỉnh thoảng</label></div>
+                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Hiếm khi" id="q10_3"><label for="q10_3">⚠️ Hiếm khi</label></div>
+                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Chưa bao giờ" id="q10_4"><label for="q10_4">❌ Chưa bao giờ</label></div>
+                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Không biết tính năng này" id="q10_5"><label for="q10_5">❓ Không biết tính năng này</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="section4">
+                    <div class="section-title"><span class="icon">⚠️</span>Phần 4: Trải nghiệm rủi ro</div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">11</span>Bạn đã từng nhận được tin nhắn/email/link đáng ngờ giả mạo sàn TMĐT hoặc đơn vị giao hàng chưa?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="Chưa bao giờ" id="q11_1"><label for="q11_1">Chưa bao giờ</label></div>
+                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="1–2 lần" id="q11_2"><label for="q11_2">1–2 lần</label></div>
+                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="3–5 lần" id="q11_3"><label for="q11_3">3–5 lần</label></div>
+                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="Hơn 5 lần" id="q11_4"><label for="q11_4">Hơn 5 lần</label></div>
+                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="Không nhớ" id="q11_5"><label for="q11_5">Không nhớ</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">12</span>Bạn hoặc người quen đã từng gặp sự cố bảo mật nào sau đây chưa? <span class="badge">Chọn nhiều</span></div>
+                        <div class="options">
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Tài khoản bị đăng nhập trái phép" id="q12_1"><label for="q12_1">👤 Tài khoản bị đăng nhập trái phép</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Tài khoản bị chiếm đoạt" id="q12_2"><label for="q12_2">🔓 Tài khoản bị chiếm đoạt</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Bị lừa cung cấp thông tin cá nhân" id="q12_3"><label for="q12_3">🎣 Bị lừa cung cấp thông tin cá nhân</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Bị mất tiền do giao dịch đáng ngờ" id="q12_4"><label for="q12_4">💸 Bị mất tiền do giao dịch đáng ngờ</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Thông tin cá nhân bị rò rỉ" id="q12_5"><label for="q12_5">📋 Thông tin cá nhân bị rò rỉ</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Nhận được nhiều tin nhắn/link lừa đảo" id="q12_6"><label for="q12_6">📨 Nhận được nhiều tin nhắn/link lừa đảo</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Chưa từng gặp" id="q12_7"><label for="q12_7">✅ Chưa từng gặp</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Khác" id="q12_8"><label for="q12_8">📝 Khác</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">13</span>Nếu nhận được tin nhắn: “Đơn hàng của bạn gặp vấn đề, hãy nhấn vào link để xác nhận”, bạn sẽ làm gì?</div>
+                        <div class="options">
+                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Nhấn link để kiểm tra" id="q13_1"><label for="q13_1">⚠️ Nhấn link để kiểm tra</label></div>
+                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Kiểm tra ứng dụng TMĐT chính thức trước" id="q13_2"><label for="q13_2">📱 Kiểm tra ứng dụng TMĐT chính thức trước</label></div>
+                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Kiểm tra tên miền/người gửi" id="q13_3"><label for="q13_3">🔎 Kiểm tra tên miền/người gửi</label></div>
+                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Liên hệ bộ phận hỗ trợ chính thức" id="q13_4"><label for="q13_4">📞 Liên hệ bộ phận hỗ trợ chính thức</label></div>
+                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Xóa tin nhắn và bỏ qua" id="q13_5"><label for="q13_5">🚫 Xóa tin nhắn và bỏ qua</label></div>
+                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Không biết nên làm gì" id="q13_6"><label for="q13_6">❓ Không biết nên làm gì</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="section5">
+                    <div class="section-title"><span class="icon">💡</span>Phần 5: Giải pháp và quản trị</div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">14</span>Theo bạn, biện pháp nào nên được ưu tiên để tăng cường bảo mật cho ứng dụng TMĐT? <span class="badge">Chọn nhiều</span></div>
+                        <div class="options">
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Xác thực hai yếu tố (2FA)" id="q14_1"><label for="q14_1">🔐 Xác thực hai yếu tố (2FA)</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Mã hóa dữ liệu" id="q14_2"><label for="q14_2">🔒 Mã hóa dữ liệu</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Tăng cường bảo mật thanh toán" id="q14_3"><label for="q14_3">💳 Tăng cường bảo mật thanh toán</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Phát hiện đăng nhập/giao dịch bất thường" id="q14_4"><label for="q14_4">🕵️ Phát hiện đăng nhập/giao dịch bất thường</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Cảnh báo khi có hoạt động đáng ngờ" id="q14_5"><label for="q14_5">🚨 Cảnh báo khi có hoạt động đáng ngờ</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Kiểm soát quyền truy cập dữ liệu" id="q14_6"><label for="q14_6">🛡️ Kiểm soát quyền truy cập dữ liệu</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Phát hiện ứng dụng/website giả mạo" id="q14_7"><label for="q14_7">🌐 Phát hiện ứng dụng/website giả mạo</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Nâng cao nhận thức người dùng" id="q14_8"><label for="q14_8">🎓 Nâng cao nhận thức người dùng</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Tăng cường kiểm soát đối tác bên thứ ba" id="q14_9"><label for="q14_9">🤝 Tăng cường kiểm soát đối tác bên thứ ba</label></div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text"><span class="number">15</span>Theo bạn, trách nhiệm bảo vệ thông tin người dùng nên thuộc về ai? <span class="badge">Chọn nhiều</span></div>
+                        <div class="options">
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Doanh nghiệp/sàn TMĐT" id="q15_1"><label for="q15_1">🏢 Doanh nghiệp/sàn TMĐT</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Người dùng" id="q15_2"><label for="q15_2">👤 Người dùng</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Ngân hàng/cổng thanh toán" id="q15_3"><label for="q15_3">🏦 Ngân hàng/cổng thanh toán</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Đơn vị vận chuyển" id="q15_4"><label for="q15_4">🚚 Đơn vị vận chuyển</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Nhà cung cấp dịch vụ công nghệ/cloud" id="q15_5"><label for="q15_5">☁️ Nhà cung cấp dịch vụ công nghệ/cloud</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Cơ quan quản lý nhà nước" id="q15_6"><label for="q15_6">🏛️ Cơ quan quản lý nhà nước</label></div>
+                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Tất cả các bên liên quan" id="q15_7"><label for="q15_7">✅ Tất cả các bên liên quan</label></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="submit-section">
+                <button type="button" class="submit-btn" id="submitBtn" onclick="submitForm()">
+                    <span class="spinner"></span>
+                    <span class="btn-text">📤 Gửi khảo sát</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            📊 Dữ liệu dùng cho nghiên cứu "Rủi ro bảo mật và quản trị an toàn thông tin trên ứng dụng TMĐT di động" | 
+            <a href="https://www.linkbout.com/fynis" target="_blank">Liên hệ: FynisFL (Ng.Trg.Duy)</a>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal-icon">🎉</div>
+            <h2>Cảm ơn bạn!</h2>
+            <p>Khảo sát đã được ghi nhận thành công.<br>Dữ liệu sẽ được sử dụng cho nghiên cứu về an toàn thông tin trong TMĐT.</p>
+        </div>
+    </div>
+    
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxaVv2hM3-tTtARPKTvqvAp2BSSgg8byP79t9HWZtFnL29KOeRNCCc-_ngDmK5IZNhN/exec';
+
+        function selectRadio(name, element) {
+            document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                r.closest('.option').classList.remove('selected');
+            });
+            element.classList.add('selected');
+            element.querySelector('input').checked = true;
+            updateProgress();
+        }
+
+        function selectCheckbox(element, event) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            // When the card/label is clicked, cancel the label's default action so the checkbox
+            // is toggled exactly once. A direct checkbox click keeps its native toggle behavior.
+            if (!event || event.target !== checkbox) {
+                if (event) event.preventDefault();
+                checkbox.checked = !checkbox.checked;
+            }
+            element.classList.toggle('selected', checkbox.checked);
+            updateProgress();
+        }
+
+        function hasAnswer(name) {
+            return !!document.querySelector(`input[name="${name}"]:checked`);
+        }
+
+        function updateProgress() {
+            const total = 15;
+            let answered = 0;
+            for (let i = 1; i <= total; i++) {
+                if (hasAnswer(`q${i}`)) answered++;
+            }
+            const percent = Math.round((answered / total) * 100);
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('progressText').textContent = `Tiến trình: ${percent}%`;
+        }
+
+        function submitForm() {
+            const btn = document.getElementById('submitBtn');
+            const btnText = btn.querySelector('.btn-text');
+
+            // All 15 questions are required. For checkbox questions, at least one option must be selected.
+            for (let i = 1; i <= 15; i++) {
+                if (!hasAnswer(`q${i}`)) {
+                    alert(`⚠️ Vui lòng trả lời câu ${i}`);
+                    return;
+                }
+            }
+
+            btn.classList.add('loading');
+            btnText.textContent = 'Đang gửi...';
+
+            const formData = new FormData(document.getElementById('surveyForm'));
+            const data = {};
+            for (const [key, value] of formData.entries()) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) data[key].push(value);
+                    else data[key] = [data[key], value];
+                } else {
+                    data[key] = value;
+                }
+            }
+            data.timestamp = new Date().toLocaleString('vi-VN');
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                btn.classList.remove('loading');
+                btnText.textContent = '📤 Gửi khảo sát';
+                document.getElementById('successModal').classList.add('active');
+                setTimeout(() => {
+                    document.getElementById('successModal').classList.remove('active');
+                    document.getElementById('surveyForm').reset();
+                    document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                    updateProgress();
+                }, 3000);
+            })
+            .catch(err => {
+                btn.classList.remove('loading');
+                btnText.textContent = '📤 Gửi khảo sát';
+                alert('❌ Lỗi gửi! Vui lòng thử lại.');
+                console.error(err);
+            });
+        }
+
+        updateProgress();
+    </script>
+</body>
+</html>
