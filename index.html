@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔒 Khảo sát An toàn thông tin trong TMĐT 2026</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🔒 Khảo sát An toàn thông tin trong TMĐT 2026</title>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -364,239 +365,122 @@
     </style>
 </head>
 <body>
-    <div class="bg-animation">
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-    </div>
-    
-    <div class="container">
-        <div class="form-card">
-            <div class="header">
-                <div class="header-icon">🔐</div>
-                <h1>Khảo sát An toàn thông tin trong TMĐT</h1>
-                <p>Nhận thức, hành vi và trải nghiệm về bảo mật khi mua sắm trực tuyến</p>
-                <p style="margin-top: 8px; font-size: 11px;">⏱️ 3-5 phút | 🔒 Ẩn danh | 📊 Nghiên cứu</p>
-            </div>
-            
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-text" id="progressText">Tiến trình: 0%</div>
-            </div>
-            
-            <form id="surveyForm" class="form-body">
-                <div class="section" id="section1">
-                    <div class="section-title"><span class="icon">🛒</span>Phần 1: Thói quen sử dụng TMĐT</div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">1</span>Bạn thường mua sắm trực tuyến bao nhiêu lần mỗi tháng?</div>
-                        <div class="options">
-                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="1" id="q1_1"><label for="q1_1">Không bao giờ</label></div>
-                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="2" id="q1_2"><label for="q1_2">1–2 lần</label></div>
-                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="3" id="q1_3"><label for="q1_3">3–5 lần</label></div>
-                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="4" id="q1_4"><label for="q1_4">6–10 lần</label></div>
-                            <div class="option" onclick="selectRadio('q1', this)"><input type="radio" name="q1" value="5" id="q1_5"><label for="q1_5">Hơn 10 lần</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">2</span>Bạn thường sử dụng những nền tảng nào để mua sắm trực tuyến? <span class="badge">Chọn nhiều</span></div>
-                        <div class="options">
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Shopee" id="q2_1"><label for="q2_1">🛒 Shopee</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Lazada" id="q2_2"><label for="q2_2">🏪 Lazada</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="TikTok Shop" id="q2_3"><label for="q2_3">🎵 TikTok Shop</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Tiki" id="q2_4"><label for="q2_4">📦 Tiki</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Facebook/Marketplace" id="q2_5"><label for="q2_5">📘 Facebook/Marketplace</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Website/app thương hiệu" id="q2_6"><label for="q2_6">🌐 Website/app của thương hiệu</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q2" value="Khác" id="q2_7"><label for="q2_7">📝 Khác</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">3</span>Bạn thường chi khoảng bao nhiêu tiền cho mua sắm trực tuyến mỗi tháng?</div>
-                        <div class="options">
-                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="Dưới 500.000 VNĐ" id="q3_1"><label for="q3_1">Dưới 500.000 VNĐ</label></div>
-                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="500.000–1.000.000 VNĐ" id="q3_2"><label for="q3_2">500.000–1.000.000 VNĐ</label></div>
-                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="1.000.000–3.000.000 VNĐ" id="q3_3"><label for="q3_3">1.000.000–3.000.000 VNĐ</label></div>
-                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="3.000.000–5.000.000 VNĐ" id="q3_4"><label for="q3_4">3.000.000–5.000.000 VNĐ</label></div>
-                            <div class="option" onclick="selectRadio('q3', this)"><input type="radio" name="q3" value="Trên 5.000.000 VNĐ" id="q3_5"><label for="q3_5">Trên 5.000.000 VNĐ</label></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section" id="section2">
-                    <div class="section-title"><span class="icon">🧠</span>Phần 2: Nhận thức về an toàn thông tin</div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">4</span>Bạn quan tâm đến vấn đề bảo mật thông tin khi sử dụng ứng dụng TMĐT ở mức độ nào?</div>
-                        <div class="options">
-                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Hoàn toàn không quan tâm" id="q4_1"><label for="q4_1">Hoàn toàn không quan tâm</label></div>
-                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Ít quan tâm" id="q4_2"><label for="q4_2">Ít quan tâm</label></div>
-                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Bình thường" id="q4_3"><label for="q4_3">Bình thường</label></div>
-                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Khá quan tâm" id="q4_4"><label for="q4_4">Khá quan tâm</label></div>
-                            <div class="option" onclick="selectRadio('q4', this)"><input type="radio" name="q4" value="Rất quan tâm" id="q4_5"><label for="q4_5">Rất quan tâm</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">5</span>Theo bạn, những thông tin nào cần được bảo vệ khi sử dụng ứng dụng TMĐT? <span class="badge">Chọn nhiều</span></div>
-                        <div class="options">
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Họ tên" id="q5_1"><label for="q5_1">👤 Họ tên</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Số điện thoại" id="q5_2"><label for="q5_2">📞 Số điện thoại</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Địa chỉ giao hàng" id="q5_3"><label for="q5_3">📍 Địa chỉ giao hàng</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Tài khoản/mật khẩu" id="q5_4"><label for="q5_4">🔑 Tài khoản/mật khẩu</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Thông tin thẻ/tài khoản ngân hàng" id="q5_5"><label for="q5_5">💳 Thông tin thẻ/tài khoản ngân hàng</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Lịch sử mua hàng" id="q5_6"><label for="q5_6">🧾 Lịch sử mua hàng</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Thông tin định danh cá nhân" id="q5_7"><label for="q5_7">🪪 Thông tin định danh cá nhân</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q5" value="Khác" id="q5_8"><label for="q5_8">📝 Khác</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">6</span>Theo bạn, rủi ro bảo mật nào đáng lo ngại nhất khi sử dụng ứng dụng TMĐT? <span class="badge">Chọn nhiều</span></div>
-                        <div class="options">
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Lừa đảo/phishing" id="q6_1"><label for="q6_1">🎣 Lừa đảo/phishing</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Chiếm đoạt tài khoản" id="q6_2"><label for="q6_2">👤 Chiếm đoạt tài khoản</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Rò rỉ thông tin cá nhân" id="q6_3"><label for="q6_3">📋 Rò rỉ thông tin cá nhân</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Đánh cắp thông tin thanh toán" id="q6_4"><label for="q6_4">💳 Đánh cắp thông tin thanh toán</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Ứng dụng/website giả mạo" id="q6_5"><label for="q6_5">🌐 Ứng dụng/website giả mạo</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Truy cập trái phép vào tài khoản" id="q6_6"><label for="q6_6">🔓 Truy cập trái phép vào tài khoản</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Gian lận giao dịch/đơn hàng" id="q6_7"><label for="q6_7">🛍️ Gian lận giao dịch/đơn hàng</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q6" value="Khác" id="q6_8"><label for="q6_8">📝 Khác</label></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section" id="section3">
-                    <div class="section-title"><span class="icon">🛡️</span>Phần 3: Hành vi bảo mật</div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">7</span>Bạn có sử dụng mật khẩu khác nhau cho tài khoản TMĐT và các dịch vụ khác không?</div>
-                        <div class="options">
-                            <div class="option" onclick="selectRadio('q7', this)"><input type="radio" name="q7" value="Có, luôn sử dụng mật khẩu khác nhau" id="q7_1"><label for="q7_1">✅ Có, luôn sử dụng mật khẩu khác nhau</label></div>
-                            <div class="option" onclick="selectRadio('q7', this)"><input type="radio" name="q7" value="Có, nhưng chỉ với một số tài khoản" id="q7_2"><label for="q7_2">🔐 Có, nhưng chỉ với một số tài khoản</label></div>
-                            <div class="option" onclick="selectRadio('q7', this)"><input type="radio" name="q7" value="Không, thường sử dụng lại mật khẩu" id="q7_3"><label for="q7_3">⚠️ Không, thường sử dụng lại mật khẩu</label></div>
-                            <div class="option" onclick="selectRadio('q7', this)"><input type="radio" name="q7" value="Không nhớ/không rõ" id="q7_4"><label for="q7_4">❓ Không nhớ/không rõ</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">8</span>Bạn có sử dụng xác thực hai yếu tố (2FA/OTP) cho tài khoản TMĐT không?</div>
-                        <div class="options">
-                            <div class="option" onclick="selectRadio('q8', this)"><input type="radio" name="q8" value="Có, thường xuyên" id="q8_1"><label for="q8_1">✅ Có, thường xuyên</label></div>
-                            <div class="option" onclick="selectRadio('q8', this)"><input type="radio" name="q8" value="Có, nhưng chỉ với một số tài khoản" id="q8_2"><label for="q8_2">🔐 Có, nhưng chỉ với một số tài khoản</label></div>
-                            <div class="option" onclick="selectRadio('q8', this)"><input type="radio" name="q8" value="Không" id="q8_3"><label for="q8_3">❌ Không</label></div>
-                            <div class="option" onclick="selectRadio('q8', this)"><input type="radio" name="q8" value="Không biết 2FA là gì" id="q8_4"><label for="q8_4">❓ Không biết 2FA là gì</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">9</span>Khi ứng dụng TMĐT yêu cầu quyền truy cập (vị trí, danh bạ, camera, ảnh...), bạn thường làm gì?</div>
-                        <div class="options">
-                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Kiểm tra quyền trước khi cho phép" id="q9_1"><label for="q9_1">🔎 Kiểm tra quyền trước khi cho phép</label></div>
-                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Chỉ cho phép những quyền cần thiết" id="q9_2"><label for="q9_2">✅ Chỉ cho phép những quyền cần thiết</label></div>
-                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Đồng ý tất cả để sử dụng ứng dụng" id="q9_3"><label for="q9_3">⚠️ Đồng ý tất cả để sử dụng ứng dụng</label></div>
-                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Không để ý" id="q9_4"><label for="q9_4">❓ Không để ý</label></div>
-                            <div class="option" onclick="selectRadio('q9', this)"><input type="radio" name="q9" value="Không nhớ" id="q9_5"><label for="q9_5">🤷 Không nhớ</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">10</span>Bạn có thường kiểm tra các thiết bị hoặc phiên đăng nhập vào tài khoản TMĐT của mình không?</div>
-                        <div class="options">
-                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Thường xuyên" id="q10_1"><label for="q10_1">✅ Thường xuyên</label></div>
-                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Thỉnh thoảng" id="q10_2"><label for="q10_2">🕒 Thỉnh thoảng</label></div>
-                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Hiếm khi" id="q10_3"><label for="q10_3">⚠️ Hiếm khi</label></div>
-                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Chưa bao giờ" id="q10_4"><label for="q10_4">❌ Chưa bao giờ</label></div>
-                            <div class="option" onclick="selectRadio('q10', this)"><input type="radio" name="q10" value="Không biết tính năng này" id="q10_5"><label for="q10_5">❓ Không biết tính năng này</label></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section" id="section4">
-                    <div class="section-title"><span class="icon">⚠️</span>Phần 4: Trải nghiệm rủi ro</div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">11</span>Bạn đã từng nhận được tin nhắn/email/link đáng ngờ giả mạo sàn TMĐT hoặc đơn vị giao hàng chưa?</div>
-                        <div class="options">
-                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="Chưa bao giờ" id="q11_1"><label for="q11_1">Chưa bao giờ</label></div>
-                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="1–2 lần" id="q11_2"><label for="q11_2">1–2 lần</label></div>
-                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="3–5 lần" id="q11_3"><label for="q11_3">3–5 lần</label></div>
-                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="Hơn 5 lần" id="q11_4"><label for="q11_4">Hơn 5 lần</label></div>
-                            <div class="option" onclick="selectRadio('q11', this)"><input type="radio" name="q11" value="Không nhớ" id="q11_5"><label for="q11_5">Không nhớ</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">12</span>Bạn hoặc người quen đã từng gặp sự cố bảo mật nào sau đây chưa? <span class="badge">Chọn nhiều</span></div>
-                        <div class="options">
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Tài khoản bị đăng nhập trái phép" id="q12_1"><label for="q12_1">👤 Tài khoản bị đăng nhập trái phép</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Tài khoản bị chiếm đoạt" id="q12_2"><label for="q12_2">🔓 Tài khoản bị chiếm đoạt</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Bị lừa cung cấp thông tin cá nhân" id="q12_3"><label for="q12_3">🎣 Bị lừa cung cấp thông tin cá nhân</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Bị mất tiền do giao dịch đáng ngờ" id="q12_4"><label for="q12_4">💸 Bị mất tiền do giao dịch đáng ngờ</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Thông tin cá nhân bị rò rỉ" id="q12_5"><label for="q12_5">📋 Thông tin cá nhân bị rò rỉ</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Nhận được nhiều tin nhắn/link lừa đảo" id="q12_6"><label for="q12_6">📨 Nhận được nhiều tin nhắn/link lừa đảo</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Chưa từng gặp" id="q12_7"><label for="q12_7">✅ Chưa từng gặp</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q12" value="Khác" id="q12_8"><label for="q12_8">📝 Khác</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">13</span>Nếu nhận được tin nhắn: “Đơn hàng của bạn gặp vấn đề, hãy nhấn vào link để xác nhận”, bạn sẽ làm gì?</div>
-                        <div class="options">
-                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Nhấn link để kiểm tra" id="q13_1"><label for="q13_1">⚠️ Nhấn link để kiểm tra</label></div>
-                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Kiểm tra ứng dụng TMĐT chính thức trước" id="q13_2"><label for="q13_2">📱 Kiểm tra ứng dụng TMĐT chính thức trước</label></div>
-                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Kiểm tra tên miền/người gửi" id="q13_3"><label for="q13_3">🔎 Kiểm tra tên miền/người gửi</label></div>
-                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Liên hệ bộ phận hỗ trợ chính thức" id="q13_4"><label for="q13_4">📞 Liên hệ bộ phận hỗ trợ chính thức</label></div>
-                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Xóa tin nhắn và bỏ qua" id="q13_5"><label for="q13_5">🚫 Xóa tin nhắn và bỏ qua</label></div>
-                            <div class="option" onclick="selectRadio('q13', this)"><input type="radio" name="q13" value="Không biết nên làm gì" id="q13_6"><label for="q13_6">❓ Không biết nên làm gì</label></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section" id="section5">
-                    <div class="section-title"><span class="icon">💡</span>Phần 5: Giải pháp và quản trị</div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">14</span>Theo bạn, biện pháp nào nên được ưu tiên để tăng cường bảo mật cho ứng dụng TMĐT? <span class="badge">Chọn nhiều</span></div>
-                        <div class="options">
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Xác thực hai yếu tố (2FA)" id="q14_1"><label for="q14_1">🔐 Xác thực hai yếu tố (2FA)</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Mã hóa dữ liệu" id="q14_2"><label for="q14_2">🔒 Mã hóa dữ liệu</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Tăng cường bảo mật thanh toán" id="q14_3"><label for="q14_3">💳 Tăng cường bảo mật thanh toán</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Phát hiện đăng nhập/giao dịch bất thường" id="q14_4"><label for="q14_4">🕵️ Phát hiện đăng nhập/giao dịch bất thường</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Cảnh báo khi có hoạt động đáng ngờ" id="q14_5"><label for="q14_5">🚨 Cảnh báo khi có hoạt động đáng ngờ</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Kiểm soát quyền truy cập dữ liệu" id="q14_6"><label for="q14_6">🛡️ Kiểm soát quyền truy cập dữ liệu</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Phát hiện ứng dụng/website giả mạo" id="q14_7"><label for="q14_7">🌐 Phát hiện ứng dụng/website giả mạo</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Nâng cao nhận thức người dùng" id="q14_8"><label for="q14_8">🎓 Nâng cao nhận thức người dùng</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q14" value="Tăng cường kiểm soát đối tác bên thứ ba" id="q14_9"><label for="q14_9">🤝 Tăng cường kiểm soát đối tác bên thứ ba</label></div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="question-text"><span class="number">15</span>Theo bạn, trách nhiệm bảo vệ thông tin người dùng nên thuộc về ai? <span class="badge">Chọn nhiều</span></div>
-                        <div class="options">
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Doanh nghiệp/sàn TMĐT" id="q15_1"><label for="q15_1">🏢 Doanh nghiệp/sàn TMĐT</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Người dùng" id="q15_2"><label for="q15_2">👤 Người dùng</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Ngân hàng/cổng thanh toán" id="q15_3"><label for="q15_3">🏦 Ngân hàng/cổng thanh toán</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Đơn vị vận chuyển" id="q15_4"><label for="q15_4">🚚 Đơn vị vận chuyển</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Nhà cung cấp dịch vụ công nghệ/cloud" id="q15_5"><label for="q15_5">☁️ Nhà cung cấp dịch vụ công nghệ/cloud</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Cơ quan quản lý nhà nước" id="q15_6"><label for="q15_6">🏛️ Cơ quan quản lý nhà nước</label></div>
-                            <div class="option" onclick="selectCheckbox(this, event)"><input type="checkbox" name="q15" value="Tất cả các bên liên quan" id="q15_7"><label for="q15_7">✅ Tất cả các bên liên quan</label></div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            
-            <div class="submit-section">
-                <button type="button" class="submit-btn" id="submitBtn" onclick="submitForm()">
-                    <span class="spinner"></span>
-                    <span class="btn-text">📤 Gửi khảo sát</span>
-                </button>
-            </div>
-        </div>
-        
-        <div class="footer">
+<div class="bg-animation">
+<span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span>
+</div>
+<div class="container">
+<div class="form-card">
+<div class="header">
+<div class="header-icon">🔐</div>
+<h1>Khảo sát An toàn thông tin trong TMĐT</h1>
+<p>Nhận thức, hành vi và trải nghiệm về bảo mật khi mua sắm trực tuyến</p>
+<p style="margin-top: 8px; font-size: 11px;">⏱️ 3-5 phút | 🔒 Ẩn danh | 📊 Nghiên cứu</p>
+</div>
+<div class="progress-container">
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+<div class="progress-text" id="progressText">Tiến trình: 0%</div>
+</div>
+<form class="form-body" id="surveyForm">
+<div class="section" id="section1">
+<div class="section-title"><span class="icon">🛒</span>Phần 1: Thói quen sử dụng TMĐT</div>
+<div class="question">
+<div class="question-text"><span class="number">1</span>Bạn thường mua sắm trực tuyến với tần suất như thế nào?</div>
+<div class="options"><div class="option" onclick="selectRadio('q1', this)"><input id="q1_1" name="q1" type="radio" value="Không bao giờ"/><label for="q1_1">Không bao giờ</label></div><div class="option" onclick="selectRadio('q1', this)"><input id="q1_2" name="q1" type="radio" value="1–2 lần/tháng"/><label for="q1_2">1–2 lần/tháng</label></div><div class="option" onclick="selectRadio('q1', this)"><input id="q1_3" name="q1" type="radio" value="3–5 lần/tháng"/><label for="q1_3">3–5 lần/tháng</label></div><div class="option" onclick="selectRadio('q1', this)"><input id="q1_4" name="q1" type="radio" value="6–10 lần/tháng"/><label for="q1_4">6–10 lần/tháng</label></div><div class="option" onclick="selectRadio('q1', this)"><input id="q1_5" name="q1" type="radio" value="Hơn 10 lần/tháng"/><label for="q1_5">Hơn 10 lần/tháng</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">2</span>Bạn thường sử dụng những nền tảng nào để mua sắm trực tuyến? <span class="badge">Chọn nhiều</span></div>
+<div class="options"><div class="option" onclick="selectCheckbox(this, event)"><input id="q2_1" name="q2" type="checkbox" value="Shopee"/><label for="q2_1">🛒 Shopee</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q2_2" name="q2" type="checkbox" value="Lazada"/><label for="q2_2">🏪 Lazada</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q2_3" name="q2" type="checkbox" value="TikTok Shop"/><label for="q2_3">🎵 TikTok Shop</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q2_4" name="q2" type="checkbox" value="Tiki"/><label for="q2_4">📦 Tiki</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q2_5" name="q2" type="checkbox" value="Facebook/Marketplace"/><label for="q2_5">📘 Facebook/Marketplace</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q2_6" name="q2" type="checkbox" value="Website/ứng dụng của thương hiệu"/><label for="q2_6">🌐 Website/ứng dụng của thương hiệu</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q2_7" name="q2" type="checkbox" value="Nền tảng khác"/><label for="q2_7">🧩 Nền tảng khác</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q2_8" name="q2" type="checkbox" value="Khác"/><label for="q2_8">📝 Khác</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">3</span>Bạn thường chi khoảng bao nhiêu tiền cho mua sắm trực tuyến mỗi tháng?</div>
+<div class="options"><div class="option" onclick="selectRadio('q3', this)"><input id="q3_1" name="q3" type="radio" value="Dưới 500.000 VNĐ"/><label for="q3_1">Dưới 500.000 VNĐ</label></div><div class="option" onclick="selectRadio('q3', this)"><input id="q3_2" name="q3" type="radio" value="500.000–1.000.000 VNĐ"/><label for="q3_2">500.000–1.000.000 VNĐ</label></div><div class="option" onclick="selectRadio('q3', this)"><input id="q3_3" name="q3" type="radio" value="1.000.000–3.000.000 VNĐ"/><label for="q3_3">1.000.000–3.000.000 VNĐ</label></div><div class="option" onclick="selectRadio('q3', this)"><input id="q3_4" name="q3" type="radio" value="3.000.000–5.000.000 VNĐ"/><label for="q3_4">3.000.000–5.000.000 VNĐ</label></div><div class="option" onclick="selectRadio('q3', this)"><input id="q3_5" name="q3" type="radio" value="Trên 5.000.000 VNĐ"/><label for="q3_5">Trên 5.000.000 VNĐ</label></div></div>
+</div>
+</div>
+<div class="section" id="section2">
+<div class="section-title"><span class="icon">🧠</span>Phần 2: Nhận thức về an toàn thông tin</div>
+<div class="question">
+<div class="question-text"><span class="number">4</span>Bạn quan tâm đến vấn đề bảo mật thông tin khi sử dụng ứng dụng TMĐT ở mức độ nào?</div>
+<div class="options"><div class="option" onclick="selectRadio('q4', this)"><input id="q4_1" name="q4" type="radio" value="Hoàn toàn không quan trọng"/><label for="q4_1">Hoàn toàn không quan trọng</label></div><div class="option" onclick="selectRadio('q4', this)"><input id="q4_2" name="q4" type="radio" value="Ít quan trọng"/><label for="q4_2">Ít quan trọng</label></div><div class="option" onclick="selectRadio('q4', this)"><input id="q4_3" name="q4" type="radio" value="Bình thường"/><label for="q4_3">Bình thường</label></div><div class="option" onclick="selectRadio('q4', this)"><input id="q4_4" name="q4" type="radio" value="Quan trọng"/><label for="q4_4">Quan trọng</label></div><div class="option" onclick="selectRadio('q4', this)"><input id="q4_5" name="q4" type="radio" value="Rất quan trọng"/><label for="q4_5">Rất quan trọng</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">5</span>Theo bạn, những thông tin nào cần được bảo vệ khi sử dụng ứng dụng TMĐT? <span class="badge">Chọn nhiều</span></div>
+<div class="options"><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_1" name="q5" type="checkbox" value="Họ tên"/><label for="q5_1">👤 Họ tên</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_2" name="q5" type="checkbox" value="Số điện thoại"/><label for="q5_2">📞 Số điện thoại</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_3" name="q5" type="checkbox" value="Địa chỉ nhận hàng"/><label for="q5_3">📍 Địa chỉ nhận hàng</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_4" name="q5" type="checkbox" value="Email"/><label for="q5_4">✉️ Email</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_5" name="q5" type="checkbox" value="Thông tin tài khoản/đăng nhập"/><label for="q5_5">🔑 Thông tin tài khoản/đăng nhập</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_6" name="q5" type="checkbox" value="Thông tin thẻ/ngân hàng/ví điện tử"/><label for="q5_6">💳 Thông tin thẻ/ngân hàng/ví điện tử</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_7" name="q5" type="checkbox" value="Lịch sử mua hàng"/><label for="q5_7">🧾 Lịch sử mua hàng</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_8" name="q5" type="checkbox" value="Vị trí thiết bị"/><label for="q5_8">📍 Vị trí thiết bị</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_9" name="q5" type="checkbox" value="Thông tin khác"/><label for="q5_9">📝 Thông tin khác</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q5_10" name="q5" type="checkbox" value="Không để ý những thông tin nào được thu thập"/><label for="q5_10">❓ Không để ý những thông tin nào được thu thập</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">6</span>Bạn lo ngại những rủi ro nào nhất khi sử dụng ứng dụng thương mại điện tử? <span class="badge">Chọn nhiều</span></div>
+<div class="options"><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_1" name="q6" type="checkbox" value="Bị chiếm đoạt tài khoản"/><label for="q6_1">🔓 Bị chiếm đoạt tài khoản</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_2" name="q6" type="checkbox" value="Bị đánh cắp thông tin cá nhân"/><label for="q6_2">📋 Bị đánh cắp thông tin cá nhân</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_3" name="q6" type="checkbox" value="Bị lộ thông tin đơn hàng/lịch sử mua sắm"/><label for="q6_3">🧾 Bị lộ thông tin đơn hàng/lịch sử mua sắm</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_4" name="q6" type="checkbox" value="Bị mất tiền hoặc thực hiện giao dịch trái phép"/><label for="q6_4">💸 Bị mất tiền hoặc thực hiện giao dịch trái phép</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_5" name="q6" type="checkbox" value="Bị lừa đảo qua tin nhắn/đường dẫn giả mạo"/><label for="q6_5">🎣 Bị lừa đảo qua tin nhắn/đường dẫn giả mạo</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_6" name="q6" type="checkbox" value="Ứng dụng hoặc website giả mạo"/><label for="q6_6">🌐 Ứng dụng hoặc website giả mạo</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_7" name="q6" type="checkbox" value="Gian lận trong quá trình đặt hàng/thanh toán"/><label for="q6_7">🛍️ Gian lận trong quá trình đặt hàng/thanh toán</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_8" name="q6" type="checkbox" value="Dữ liệu bị chia sẻ hoặc thu thập quá mức bởi bên thứ ba"/><label for="q6_8">🤝 Dữ liệu bị chia sẻ hoặc thu thập quá mức bởi bên thứ ba</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_9" name="q6" type="checkbox" value="Không lo ngại rủi ro nào"/><label for="q6_9">✅ Không lo ngại rủi ro nào</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q6_10" name="q6" type="checkbox" value="Khác"/><label for="q6_10">📝 Khác</label></div></div>
+</div>
+</div>
+<div class="section" id="section3">
+<div class="section-title"><span class="icon">🛡️</span>Phần 3: Hành vi bảo mật</div>
+<div class="question">
+<div class="question-text"><span class="number">7</span>Bạn có sử dụng mật khẩu khác nhau cho tài khoản thương mại điện tử và các dịch vụ khác không?</div>
+<div class="options"><div class="option" onclick="selectRadio('q7', this)"><input id="q7_1" name="q7" type="radio" value="Luôn sử dụng mật khẩu khác nhau"/><label for="q7_1">✅ Luôn sử dụng mật khẩu khác nhau</label></div><div class="option" onclick="selectRadio('q7', this)"><input id="q7_2" name="q7" type="radio" value="Thường sử dụng khác nhau"/><label for="q7_2">🔐 Thường sử dụng khác nhau</label></div><div class="option" onclick="selectRadio('q7', this)"><input id="q7_3" name="q7" type="radio" value="Đôi khi dùng lại"/><label for="q7_3">⚠️ Đôi khi dùng lại</label></div><div class="option" onclick="selectRadio('q7', this)"><input id="q7_4" name="q7" type="radio" value="Thường dùng lại cùng một mật khẩu"/><label for="q7_4">🚨 Thường dùng lại cùng một mật khẩu</label></div><div class="option" onclick="selectRadio('q7', this)"><input id="q7_5" name="q7" type="radio" value="Không nhớ/không để ý"/><label for="q7_5">❓ Không nhớ/không để ý</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">8</span>Bạn có sử dụng xác thực hai lớp/MFA/OTP khi đăng nhập hoặc thực hiện giao dịch không?</div>
+<div class="options"><div class="option" onclick="selectRadio('q8', this)"><input id="q8_1" name="q8" type="radio" value="Luôn sử dụng"/><label for="q8_1">✅ Luôn sử dụng</label></div><div class="option" onclick="selectRadio('q8', this)"><input id="q8_2" name="q8" type="radio" value="Thường sử dụng"/><label for="q8_2">🔐 Thường sử dụng</label></div><div class="option" onclick="selectRadio('q8', this)"><input id="q8_3" name="q8" type="radio" value="Chỉ sử dụng khi hệ thống bắt buộc"/><label for="q8_3">🛡️ Chỉ sử dụng khi hệ thống bắt buộc</label></div><div class="option" onclick="selectRadio('q8', this)"><input id="q8_4" name="q8" type="radio" value="Hiếm khi sử dụng"/><label for="q8_4">⚠️ Hiếm khi sử dụng</label></div><div class="option" onclick="selectRadio('q8', this)"><input id="q8_5" name="q8" type="radio" value="Không sử dụng"/><label for="q8_5">❌ Không sử dụng</label></div><div class="option" onclick="selectRadio('q8', this)"><input id="q8_6" name="q8" type="radio" value="Không biết MFA/2FA là gì"/><label for="q8_6">❓ Không biết MFA/2FA là gì</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">9</span>Khi ứng dụng yêu cầu quyền truy cập như vị trí, danh bạ, camera hoặc bộ nhớ, bạn thường làm gì?</div>
+<div class="options"><div class="option" onclick="selectRadio('q9', this)"><input id="q9_1" name="q9" type="radio" value="Cho phép tất cả"/><label for="q9_1">⚠️ Cho phép tất cả</label></div><div class="option" onclick="selectRadio('q9', this)"><input id="q9_2" name="q9" type="radio" value="Chỉ cho phép những quyền cần thiết"/><label for="q9_2">✅ Chỉ cho phép những quyền cần thiết</label></div><div class="option" onclick="selectRadio('q9', this)"><input id="q9_3" name="q9" type="radio" value="Đọc thông báo/quyền truy cập rồi mới quyết định"/><label for="q9_3">🔎 Đọc thông báo/quyền truy cập rồi mới quyết định</label></div><div class="option" onclick="selectRadio('q9', this)"><input id="q9_4" name="q9" type="radio" value="Thường bỏ qua và cho phép"/><label for="q9_4">🕒 Thường bỏ qua và cho phép</label></div><div class="option" onclick="selectRadio('q9', this)"><input id="q9_5" name="q9" type="radio" value="Không để ý"/><label for="q9_5">❓ Không để ý</label></div><div class="option" onclick="selectRadio('q9', this)"><input id="q9_6" name="q9" type="radio" value="Tôi thường từ chối các quyền không cần thiết"/><label for="q9_6">🚫 Tôi thường từ chối các quyền không cần thiết</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">10</span>Bạn có thường kiểm tra hoạt động đăng nhập hoặc thiết bị đang đăng nhập tài khoản mua sắm của mình không?</div>
+<div class="options"><div class="option" onclick="selectRadio('q10', this)"><input id="q10_1" name="q10" type="radio" value="Thường xuyên"/><label for="q10_1">✅ Thường xuyên</label></div><div class="option" onclick="selectRadio('q10', this)"><input id="q10_2" name="q10" type="radio" value="Thỉnh thoảng"/><label for="q10_2">🕒 Thỉnh thoảng</label></div><div class="option" onclick="selectRadio('q10', this)"><input id="q10_3" name="q10" type="radio" value="Chỉ kiểm tra khi có dấu hiệu bất thường"/><label for="q10_3">🔎 Chỉ kiểm tra khi có dấu hiệu bất thường</label></div><div class="option" onclick="selectRadio('q10', this)"><input id="q10_4" name="q10" type="radio" value="Chưa bao giờ"/><label for="q10_4">❌ Chưa bao giờ</label></div><div class="option" onclick="selectRadio('q10', this)"><input id="q10_5" name="q10" type="radio" value="Không biết chức năng này"/><label for="q10_5">❓ Không biết chức năng này</label></div></div>
+</div>
+</div>
+<div class="section" id="section4">
+<div class="section-title"><span class="icon">⚠️</span>Phần 4: Trải nghiệm rủi ro</div>
+<div class="question">
+<div class="question-text"><span class="number">11</span>Bạn đã từng nhận được tin nhắn/email/cuộc gọi giả danh sàn thương mại điện tử hoặc đơn vị giao hàng chưa?</div>
+<div class="options"><div class="option" onclick="selectRadio('q11', this)"><input id="q11_1" name="q11" type="radio" value="Chưa bao giờ"/><label for="q11_1">Chưa bao giờ</label></div><div class="option" onclick="selectRadio('q11', this)"><input id="q11_2" name="q11" type="radio" value="1–2 lần"/><label for="q11_2">1–2 lần</label></div><div class="option" onclick="selectRadio('q11', this)"><input id="q11_3" name="q11" type="radio" value="3–5 lần"/><label for="q11_3">3–5 lần</label></div><div class="option" onclick="selectRadio('q11', this)"><input id="q11_4" name="q11" type="radio" value="Hơn 5 lần"/><label for="q11_4">Hơn 5 lần</label></div><div class="option" onclick="selectRadio('q11', this)"><input id="q11_5" name="q11" type="radio" value="Không chắc"/><label for="q11_5">Không chắc</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">12</span>Bạn hoặc người quen đã từng gặp tình huống nào sau đây liên quan đến an toàn thông tin khi mua sắm trực tuyến? <span class="badge">Chọn nhiều</span></div>
+<div class="options"><div class="option" onclick="selectCheckbox(this, event)"><input id="q12_1" name="q12" type="checkbox" value="Tài khoản bị đăng nhập trái phép"/><label for="q12_1">👤 Tài khoản bị đăng nhập trái phép</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q12_2" name="q12" type="checkbox" value="Tài khoản bị chiếm đoạt"/><label for="q12_2">🔓 Tài khoản bị chiếm đoạt</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q12_3" name="q12" type="checkbox" value="Thông tin cá nhân bị lộ"/><label for="q12_3">📋 Thông tin cá nhân bị lộ</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q12_4" name="q12" type="checkbox" value="Nhận được tin nhắn/đường dẫn lừa đảo"/><label for="q12_4">🎣 Nhận được tin nhắn/đường dẫn lừa đảo</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q12_5" name="q12" type="checkbox" value="Bị mất tiền hoặc phát sinh giao dịch không mong muốn"/><label for="q12_5">💸 Bị mất tiền hoặc phát sinh giao dịch không mong muốn</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q12_6" name="q12" type="checkbox" value="Đơn hàng/thông tin đơn hàng bị can thiệp bất thường"/><label for="q12_6">🧾 Đơn hàng/thông tin đơn hàng bị can thiệp bất thường</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q12_7" name="q12" type="checkbox" value="Tải hoặc sử dụng nhầm ứng dụng/website giả mạo"/><label for="q12_7">🌐 Tải hoặc sử dụng nhầm ứng dụng/website giả mạo</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q12_8" name="q12" type="checkbox" value="Chưa từng gặp trường hợp nào"/><label for="q12_8">✅ Chưa từng gặp trường hợp nào</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q12_9" name="q12" type="checkbox" value="Khác"/><label for="q12_9">📝 Khác</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">13</span>Nếu nhận được tin nhắn: “Đơn hàng của bạn đang gặp vấn đề, hãy nhấn vào đường dẫn bên dưới để xác nhận”, bạn sẽ làm gì?</div>
+<div class="options"><div class="option" onclick="selectRadio('q13', this)"><input id="q13_1" name="q13" type="radio" value="Nhấn vào đường dẫn và kiểm tra"/><label for="q13_1">⚠️ Nhấn vào đường dẫn và kiểm tra</label></div><div class="option" onclick="selectRadio('q13', this)"><input id="q13_2" name="q13" type="radio" value="Nhấn vào đường dẫn nếu tin nhắn có tên/logo của sàn"/><label for="q13_2">🏷️ Nhấn vào đường dẫn nếu tin nhắn có tên/logo của sàn</label></div><div class="option" onclick="selectRadio('q13', this)"><input id="q13_3" name="q13" type="radio" value="Không nhấn, tự mở ứng dụng chính thức để kiểm tra"/><label for="q13_3">📱 Không nhấn, tự mở ứng dụng chính thức để kiểm tra</label></div><div class="option" onclick="selectRadio('q13', this)"><input id="q13_4" name="q13" type="radio" value="Hỏi người gửi/đơn vị giao hàng trước"/><label for="q13_4">📞 Hỏi người gửi/đơn vị giao hàng trước</label></div><div class="option" onclick="selectRadio('q13', this)"><input id="q13_5" name="q13" type="radio" value="Xóa tin nhắn"/><label for="q13_5">🚫 Xóa tin nhắn</label></div><div class="option" onclick="selectRadio('q13', this)"><input id="q13_6" name="q13" type="radio" value="Không biết nên xử lý thế nào"/><label for="q13_6">❓ Không biết nên xử lý thế nào</label></div></div>
+</div>
+</div>
+<div class="section" id="section5">
+<div class="section-title"><span class="icon">💡</span>Phần 5: Giải pháp và quản trị</div>
+<div class="question">
+<div class="question-text"><span class="number">14</span>Theo bạn, doanh nghiệp thương mại điện tử nên ưu tiên biện pháp nào để giảm rủi ro bảo mật? <span class="badge">Chọn nhiều</span></div>
+<div class="options"><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_1" name="q14" type="checkbox" value="Bắt buộc xác thực hai lớp/MFA"/><label for="q14_1">🔐 Bắt buộc xác thực hai lớp/MFA</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_2" name="q14" type="checkbox" value="Mã hóa dữ liệu cá nhân và dữ liệu giao dịch"/><label for="q14_2">🔒 Mã hóa dữ liệu cá nhân và dữ liệu giao dịch</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_3" name="q14" type="checkbox" value="Kiểm soát chặt quyền truy cập"/><label for="q14_3">🛡️ Kiểm soát chặt quyền truy cập</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_4" name="q14" type="checkbox" value="Phát hiện và cảnh báo hoạt động bất thường"/><label for="q14_4">🚨 Phát hiện và cảnh báo hoạt động bất thường</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_5" name="q14" type="checkbox" value="Kiểm tra/đánh giá lỗ hổng bảo mật định kỳ"/><label for="q14_5">🔎 Kiểm tra/đánh giá lỗ hổng bảo mật định kỳ</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_6" name="q14" type="checkbox" value="Giảm lượng dữ liệu cá nhân thu thập và lưu trữ"/><label for="q14_6">🗂️ Giảm lượng dữ liệu cá nhân thu thập và lưu trữ</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_7" name="q14" type="checkbox" value="Kiểm soát bảo mật đối với đối tác bên thứ ba"/><label for="q14_7">🤝 Kiểm soát bảo mật đối với đối tác bên thứ ba</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_8" name="q14" type="checkbox" value="Xây dựng quy trình ứng phó và xử lý sự cố"/><label for="q14_8">🚨 Xây dựng quy trình ứng phó và xử lý sự cố</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_9" name="q14" type="checkbox" value="Tăng cường đào tạo nhân viên và nâng cao nhận thức người dùng"/><label for="q14_9">🎓 Tăng cường đào tạo nhân viên và nâng cao nhận thức người dùng</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q14_10" name="q14" type="checkbox" value="Khác"/><label for="q14_10">📝 Khác</label></div></div>
+</div>
+<div class="question">
+<div class="question-text"><span class="number">15</span>Theo bạn, trách nhiệm bảo vệ thông tin và an toàn giao dịch trên nền tảng thương mại điện tử thuộc về ai? <span class="badge">Chọn nhiều</span></div>
+<div class="options"><div class="option" onclick="selectCheckbox(this, event)"><input id="q15_1" name="q15" type="checkbox" value="Doanh nghiệp/sàn thương mại điện tử"/><label for="q15_1">🏢 Doanh nghiệp/sàn thương mại điện tử</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q15_2" name="q15" type="checkbox" value="Người dùng"/><label for="q15_2">👤 Người dùng</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q15_3" name="q15" type="checkbox" value="Ngân hàng/cổng thanh toán"/><label for="q15_3">🏦 Ngân hàng/cổng thanh toán</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q15_4" name="q15" type="checkbox" value="Đơn vị vận chuyển"/><label for="q15_4">🚚 Đơn vị vận chuyển</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q15_5" name="q15" type="checkbox" value="Nhà cung cấp cloud/công nghệ"/><label for="q15_5">☁️ Nhà cung cấp cloud/công nghệ</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q15_6" name="q15" type="checkbox" value="Cơ quan quản lý nhà nước"/><label for="q15_6">🏛️ Cơ quan quản lý nhà nước</label></div><div class="option" onclick="selectCheckbox(this, event)"><input id="q15_7" name="q15" type="checkbox" value="Tất cả các bên liên quan"/><label for="q15_7">✅ Tất cả các bên liên quan</label></div></div>
+</div>
+</div>
+</form>
+<div class="submit-section">
+<button class="submit-btn" id="submitBtn" onclick="submitForm()" type="button">
+<span class="spinner"></span>
+<span class="btn-text">📤 Gửi khảo sát</span>
+</button>
+</div>
+</div>
+<div class="footer">
             📊 Dữ liệu dùng cho nghiên cứu "Rủi ro bảo mật và quản trị an toàn thông tin trên ứng dụng TMĐT di động" | 
             <a href="https://www.linkbout.com/fynis" target="_blank">Liên hệ: FynisFL (Ng.Trg.Duy)</a>
-        </div>
-    </div>
-    
-    <!-- Success Modal -->
-    <div class="modal-overlay" id="successModal">
-        <div class="modal">
-            <div class="modal-icon">🎉</div>
-            <h2>Cảm ơn bạn!</h2>
-            <p>Khảo sát đã được ghi nhận thành công.<br>Dữ liệu sẽ được sử dụng cho nghiên cứu về an toàn thông tin trong TMĐT.</p>
-        </div>
-    </div>
-    
-    <script>
+</div>
+</div>
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+<div class="modal">
+<div class="modal-icon">🎉</div>
+<h2>Cảm ơn bạn!</h2>
+<p>Khảo sát đã được ghi nhận thành công.<br/>Dữ liệu sẽ được sử dụng cho nghiên cứu về an toàn thông tin trong TMĐT.</p>
+</div>
+</div>
+<script>
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxaVv2hM3-tTtARPKTvqvAp2BSSgg8byP79t9HWZtFnL29KOeRNCCc-_ngDmK5IZNhN/exec';
 
         function selectRadio(name, element) {
